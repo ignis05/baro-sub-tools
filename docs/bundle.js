@@ -13901,8 +13901,8 @@ function LoadSubmarine(xmlData) {
 	})
 }
 
-// dropbox hadling
-drop(document.getElementById('drop'), function (files) {
+// file upload handler
+function handleFileUpload(files) {
 	var file = files[0]
 
 	if (!file.name.endsWith('.sub')) {
@@ -13918,6 +13918,20 @@ drop(document.getElementById('drop'), function (files) {
 			LoadSubmarine(xmlData)
 		})
 	)
+}
+
+// dropbox hadling
+drop(document.getElementById('drop'), handleFileUpload)
+
+// click on dropbox handing
+$('#drop').on('click', () => {
+	$('#hiddenFileInput').trigger('click')
+})
+
+$('#hiddenFileInput').on('change', () => {
+	let files = $('#hiddenFileInput')[0].files
+	if (files.length < 1) return
+	handleFileUpload(files)
 })
 
 // extract image
@@ -13930,6 +13944,11 @@ $('#extractImage').on('click', () => {
 	a.download = `${LOADED_DATA.name}.png`
 	a.click()
 	console.log(`Prompted to download ${LOADED_DATA.name}.png`)
+})
+
+// help popup
+$('#fileLocHelp').on('click', () => {
+	window.alert(`Submarines can be found in "Barotrauma\\Submarines", or if they were installed from steam workshop, in "Barotrauma\\Mods\\[Package name]"\n\nTo find your "Barotrauma folder" right click on barotrauma in your steam library, select "properties", go to "local file" tab and click "Browse..."`)
 })
 
 },{"concat-stream":53,"drag-and-drop-files":55,"filereader-stream":56,"jquery":58,"zlib":8}],52:[function(require,module,exports){

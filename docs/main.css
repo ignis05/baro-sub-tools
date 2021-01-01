@@ -67,6 +67,7 @@ body {
 	text-align: center;
 	font: 20pt bold;
 	color: #bbb;
+	cursor: pointer;
 }
 
 #tools {
