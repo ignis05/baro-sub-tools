@@ -4,8 +4,8 @@
 	"description": "# build",
 	"main": "index.js",
 	"scripts": {
-		"watch": "watchify main.js -o ./static/bundle.js",
-		"build": "browserify main.js > ./static/bundle.js"
+		"watch": "watchify main.js -o ./docs/bundle.js",
+		"build": "browserify main.js > ./docs/bundle.js"
 	},
 	"author": "ignis05",
 	"license": "MIT",
