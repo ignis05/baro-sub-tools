@@ -1,0 +1,32 @@
+{
+	"name": "baro-sub-tools",
+	"version": "1.0.0",
+	"description": "# build",
+	"main": "index.js",
+	"scripts": {
+		"watch": "watchify main.js -o ./static/bundle.js",
+		"build": "browserify main.js > ./static/bundle.js"
+	},
+	"author": "ignis05",
+	"license": "MIT",
+	"devDependencies": {
+		"concat-stream": "^2.0.0",
+		"drag-and-drop-files": "0.0.1",
+		"filereader-stream": "^0.2.0",
+		"jquery": "^3.5.1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ignis05/baro-sub-tools.git"
+	},
+	"keywords": [
+		"readz",
+		"poc",
+		"gzip",
+		"browser"
+	],
+	"bugs": {
+		"url": "https://github.com/ignis05/baro-sub-tools/issues"
+	},
+	"homepage": "https://github.com/ignis05/baro-sub-tools"
+}
