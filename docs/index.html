@@ -7,7 +7,7 @@
 		<meta name="description" content="Some useful submarine editing tools for Barotrauma." />
 		<meta name="author" content="ignis05" />
 
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
 
 		<link rel="icon" href="./favicon.ico" type="image/x-icon" />
@@ -30,13 +30,16 @@
 					<div class="title">Currently Loaded Submarine:</div>
 					<div class="name">None</div>
 				</div>
-				<div>
-					<div>Submarine tools:</div>
-					<div id="extract-buttons">
-						<div>Extract data:</div>
-						<button id="extract-image">Extract preview image</button>
-						<button id="extract-image" class="shuttle-button">Test1</button>
-						<button id="extract-image" class="shuttle-button">Test2</button>
+				<div id="submarineTools">
+					<div class="title">Edit loaded submarine:</div>
+					<div class="toolSection">Nothing here yet.</div>
+				</div>
+				<div id="extractButtons">
+					<div class="title">Extract stuff from loaded file:</div>
+					<div id="buttonsWrapper">
+						<div id="extractImage" class="extractButton" title="Download this submarine's preview image as .png file">Extract preview image</div>
+						<div class="shuttleButton extractButton">Test1</div>
+						<div class="shuttleButton extractButton">Test2</div>
 					</div>
 				</div>
 			</div>

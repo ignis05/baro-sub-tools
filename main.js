@@ -19,11 +19,11 @@ function LoadSubmarine(xmlData) {
 	$('#loadedInfo .name').text(name)
 
 	// shuttle extract button - generated dynamically
-	$('.shuttle-button').remove()
+	$('.shuttleButton').remove()
 	$submarine.find('LinkedSubmarine').each(function () {
 		var name = $(this).attr('name')
-		var button = $(`<button class=".shuttle-button">Extract ${name} shuttle</button>`)
-		$('#extract-buttons').append(button)
+		var button = $(`<div class="shuttleButton extractButton">Extract "${name}"</div>`)
+		$('#buttonsWrapper').append(button)
 		button.on('click', async () => {
 			var string = $(this)
 				.prop('outerHTML')
@@ -64,7 +64,7 @@ drop(document.getElementById('drop'), function (files) {
 })
 
 // extract image
-$('#extract-image').on('click', () => {
+$('#extractImage').on('click', () => {
 	if (!LOADED_DATA) return console.error('No submarine loaded')
 	var base64 = LOADED_DATA.$submarine.attr('previewimage')
 
