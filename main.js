@@ -120,7 +120,23 @@ $('#extractImage').on('click', () => {
 
 // help popup
 $('#fileLocHelp').on('click', () => {
-	window.alert(`Submarines can be found in "Barotrauma\\Submarines", or if they were installed from steam workshop, in "Barotrauma\\Mods\\[Package name]"\n\nTo find your "Barotrauma folder" right click on barotrauma in your steam library, select "properties", go to "local file" tab and click "Browse..."`)
+	var infobox = $(`<div id="infoBox"></div>`)
+	var close = $(`<div id=closeInfoBox>X</div>`)
+	var textWrapper = $(`<div class="text"></div>`)
+	textWrapper.html(`
+	<h3>Submarines can be found in:</h3><ul>
+	<li><span class="highlight">Barotrauma\\Submarines</span> - if they were created or modified by you</li>
+	<li><span class="highlight">Barotrauma\\Submarines\\Downloaded</span> - if they were downloaded when joining server</li>
+	<li><span class="highlight">Barotrauma\\Mods\\[package name]</span> - if they were downloaded from steam workshop</li>
+	</ul>
+	To find your <span class="highlight">Barotrauma</span> folder right click on barotrauma in your steam library, select "properties", go to "local files" tab and click "Browse..."
+	`)
+	infobox.append(close).append(textWrapper)
+	close.on('click', () => {
+		close.off('click')
+		infobox.remove()
+	})
+	$(document.body).append(infobox)
 })
 
 // #region tools
