@@ -7,18 +7,18 @@ const $ = require('jquery')
 var LOADED_DATA = null
 
 function LoadSubmarine(xmlData) {
-	var $xmlData = $(xmlData)
-	var $submarine = $xmlData.find('Submarine')
+	var $submarine = $(xmlData).find('Submarine')
 
 	var name = $submarine.attr('name')
 	console.log(`Opened ${name} successfully`)
 
-	LOADED_DATA = { xmlData, $xmlData, $submarine, name }
+	LOADED_DATA = { $submarine, name }
 
-	$('#tools').attr('hidden', false)
+	$('#tools').show()
+	$('#downloadPrompt').hide()
 	$('#loadedInfo .name').text(name)
 
-	// shuttle extract button - generated dynamically
+	// #region shuttle extract buttons
 	$('.shuttleButton').remove()
 	$submarine.find('LinkedSubmarine').each(function () {
 		var name = $(this).attr('name')
@@ -42,7 +42,14 @@ function LoadSubmarine(xmlData) {
 			console.log(`Prompted to download ${name}.sub`)
 		})
 	})
+	// #endregion shuttle extract buttons
+
+	// #region tools default values
+	$('#priceInput').val($submarine.attr('price'))
+	// #endregion tools default values
 }
+
+// #region files handling
 
 // file upload handler
 function handleFileUpload(files) {
@@ -77,6 +84,28 @@ $('#hiddenFileInput').on('change', () => {
 	handleFileUpload(files)
 })
 
+// download button
+$('#downloadButton').on('click', () => {
+	let name = LOADED_DATA.name
+	let string = LOADED_DATA.$submarine.prop('outerHTML')
+
+	var output = zlib.gzipSync(string)
+
+	var blob = new Blob([output.buffer], { type: 'application/gzip' })
+	var blobUrl = URL.createObjectURL(blob)
+
+	var a = document.createElement('a')
+	a.href = blobUrl
+	a.download = `${name}.sub`
+	a.click()
+
+	console.log(`Prompted to download ${name}.sub`)
+
+	$('#downloadPrompt').hide()
+})
+
+// #endregion files handling
+
 // extract image
 $('#extractImage').on('click', () => {
 	if (!LOADED_DATA) return console.error('No submarine loaded')
@@ -93,3 +122,14 @@ $('#extractImage').on('click', () => {
 $('#fileLocHelp').on('click', () => {
 	window.alert(`Submarines can be found in "Barotrauma\\Submarines", or if they were installed from steam workshop, in "Barotrauma\\Mods\\[Package name]"\n\nTo find your "Barotrauma folder" right click on barotrauma in your steam library, select "properties", go to "local file" tab and click "Browse..."`)
 })
+
+// #region tools
+$('#priceConfirm').on('click', () => {
+	let value = $('#priceInput').val()
+	console.log(`setting price to ${value} marks`)
+
+	LOADED_DATA.$submarine.attr('price', value)
+
+	$('#downloadPrompt').show()
+})
+// #endregion tools

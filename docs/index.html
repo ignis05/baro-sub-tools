@@ -5,7 +5,7 @@
 		<title>Barotrauma Submarine Tools</title>
 
 		<meta name="description" content="Some useful submarine editing tools for Barotrauma." />
-		<meta name="keywords" content="Barotrauma, Submarine, Game, Tools">
+		<meta name="keywords" content="Barotrauma, Submarine, Game, Tools" />
 		<meta name="author" content="ignis05" />
 
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,17 +24,29 @@
 					<div class="desc">Drag .sub file below to get started:</div>
 					<div id="fileLocHelp">(Where are my .sub files?)</div>
 				</div>
-				<input type="file" id="hiddenFileInput" hidden>
+				<input type="file" id="hiddenFileInput" hidden />
 				<div id="drop">Drop your .sub here</div>
 			</div>
-			<div id="tools" hidden="true">
+			<div id="tools" hidden>
 				<div id="loadedInfo">
 					<div class="title">Currently Loaded Submarine:</div>
 					<div class="name">None</div>
 				</div>
 				<div id="submarineTools">
+					<div id="downloadPrompt" hidden>
+						<div class="label">Your submarine has been modified. Make sure to download it or your changes will be lost.</div>
+						<div id="downloadButton">Download</div>
+					</div>
 					<div class="title">Edit loaded submarine:</div>
-					<div class="toolSection">Nothing here yet.</div>
+					<div class="toolSection">
+						<div class="toolWrapper">
+							<div class="label">Change price:</div>
+							<div class="tool">
+								<input type="number" id="priceInput" />
+								<div id="priceConfirm" class="confirmButton">Confirm</div>
+							</div>
+						</div>
+					</div>
 				</div>
 				<div id="extractButtons">
 					<div class="title">Extract stuff from loaded file:</div>
