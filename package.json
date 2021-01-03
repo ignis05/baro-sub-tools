@@ -19,12 +19,6 @@
 		"type": "git",
 		"url": "https://github.com/ignis05/baro-sub-tools.git"
 	},
-	"keywords": [
-		"readz",
-		"poc",
-		"gzip",
-		"browser"
-	],
 	"bugs": {
 		"url": "https://github.com/ignis05/baro-sub-tools/issues"
 	},
