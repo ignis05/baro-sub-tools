@@ -2,7 +2,7 @@
 
 Tools for submarine building in Barotrauma
 
-Working fully client sided in browser.
+Working fully-client sided in the browser.
 
 Master branch hosted on https://ignis05.github.io/baro-sub-tools/index.html
 
