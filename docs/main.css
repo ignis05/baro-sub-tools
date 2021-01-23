@@ -60,16 +60,19 @@ body {
 	text-decoration: none;
 }
 
+#root > .link {
+	border-radius: 0 0 0 5px;
+	font-size: 16px;
+}
+
 #root > #link {
 	top: -20px;
 	right: -20px;
-	border-radius: 0 0 0 5px;
 }
 
 #root > #link2 {
 	top: -20px;
 	left: -20px;
-	border-radius: 0 0 5px 0;
 }
 
 #header {
