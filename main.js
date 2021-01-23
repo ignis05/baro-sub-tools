@@ -11,6 +11,7 @@ function LoadSubmarine(xmlData) {
 
 	var name = $submarine.attr('name')
 	console.log(`Opened ${name} successfully`)
+	showMsg(`Opened <span>${name}</span> successfully`)
 
 	LOADED_DATA = { $submarine, name }
 
@@ -40,6 +41,7 @@ function LoadSubmarine(xmlData) {
 			a.click()
 
 			console.log(`Prompted to download ${name}.sub`)
+			showMsg(`Prompted to download <span>${name}.sub</span>`)
 		})
 	})
 	// #endregion shuttle extract buttons
@@ -100,6 +102,7 @@ $('#downloadButton').on('click', () => {
 	a.click()
 
 	console.log(`Prompted to download ${name}.sub`)
+	showMsg(`Prompted to download <span>${name}.sub</span>`)
 
 	$('#downloadPrompt').hide()
 })
@@ -116,6 +119,7 @@ $('#extractImage').on('click', () => {
 	a.download = `${LOADED_DATA.name}.png`
 	a.click()
 	console.log(`Prompted to download ${LOADED_DATA.name}.png`)
+	showMsg(`Prompted to download <span>${LOADED_DATA.name}.png</span>`)
 })
 
 // help popup
@@ -139,10 +143,22 @@ $('#fileLocHelp').on('click', () => {
 	$(document.body).append(infobox)
 })
 
+// "console" popups
+function showMsg(msg) {
+	let entry = $(`<div class="consoleMsg">[${new Date().toLocaleTimeString()}] - ${msg}</div>`)
+	entry.appendTo($('#console')).hide().fadeIn(1000)
+	setTimeout(() => {
+		entry.fadeOut(1000, () => {
+			entry.remove()
+		})
+	}, 1000 * 5)
+}
+
 // #region tools
 $('#priceConfirm').on('click', () => {
 	let value = $('#priceInput').val()
 	console.log(`setting price to ${value} marks`)
+	showMsg(`setting price to ${value} marks`)
 
 	LOADED_DATA.$submarine.attr('price', value)
 

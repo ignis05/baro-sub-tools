@@ -334,3 +334,20 @@ body {
 .highlight {
 	color: #03dac6;
 }
+
+#console {
+	background: #ffffff10;
+	box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+	border-radius: 5px;
+	padding: 10px;
+	margin: 10px;
+}
+
+#console .consoleMsg:nth-child(n + 2) {
+	color: #ffffff;
+	margin-top: 5px;
+}
+
+#console .consoleMsg span {
+	color: #03dac6;
+}
