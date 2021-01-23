@@ -10,6 +10,7 @@ function LoadSubmarine(xmlData) {
 	var $submarine = $(xmlData).find('Submarine')
 
 	var name = $submarine.attr('name')
+	if (!name) return window.alert(`Failed to read file.`)
 	console.log(`Opened ${name} successfully`)
 	showMsg(`Opened <span>${name}</span> successfully`)
 
@@ -57,17 +58,22 @@ function LoadSubmarine(xmlData) {
 function handleFileUpload(files) {
 	var file = files[0]
 
-	if (!file.name.endsWith('.sub')) {
-		window.alert('Selected file is not a ".sub" file')
-		return console.warn('Selected file is not a ".sub" file')
-	}
-
 	fileReaderStream(file).pipe(
 		concat(function (contents) {
-			var output = zlib.gunzipSync(contents).toString('utf-8')
-			console.log('File loaded successfully')
-			var xmlData = $.parseXML(output)
-			LoadSubmarine(xmlData)
+			if (file.name.endsWith('.sub')) {
+				var output = zlib.gunzipSync(contents).toString('utf-8')
+				console.log('File loaded successfully')
+				var xmlData = $.parseXML(output)
+				LoadSubmarine(xmlData)
+			} else if (file.name.endsWith('.xml')) {
+				var string = contents.toString('utf-8')
+				console.log('File loaded successfully')
+				var xmlData = $.parseXML(string)
+				LoadSubmarine(xmlData)
+			} else {
+				window.alert('Selected file is not a ".sub" file')
+				return console.warn('Selected file is not a ".sub" file')
+			}
 		})
 	)
 }
