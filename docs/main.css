@@ -42,7 +42,7 @@ body {
 	border: 1px solid white;
 	display: block;
 	padding: 2px;
-	font-size: 0.7em;
+	font-size: 16px;
 	opacity: 0.5;
 	cursor: pointer;
 	display: block;
@@ -60,19 +60,16 @@ body {
 	text-decoration: none;
 }
 
-#root > .link {
-	border-radius: 0 0 0 5px;
-	font-size: 16px;
-}
-
 #root > #link {
 	top: -20px;
 	right: -20px;
+	border-radius: 0 0 0 5px;
 }
 
 #root > #link2 {
 	top: -20px;
 	left: -20px;
+	border-radius: 0 0 5px 0;
 }
 
 #header {
