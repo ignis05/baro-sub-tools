@@ -170,4 +170,21 @@ $('#priceConfirm').on('click', () => {
 
 	$('#downloadPrompt').show()
 })
+
+$('#cleanDirt').on('click', () => {
+	var cleanedCount = 0
+	LOADED_DATA.$submarine.find('Hull').each(function () {
+		var hull = $(this)
+		if (hull.attr('backgroundsections') !== '') {
+			hull.attr('backgroundsections', '')
+			cleanedCount++
+		}
+	})
+	console.log(`${cleanedCount} hulls were cleared`)
+	if (!cleanedCount) {
+		return showMsg(`No dirty hulls found.`)
+	}
+	showMsg(`Cleaned <span>${cleanedCount}</span> rooms!`)
+	$('#downloadPrompt').show()
+})
 // #endregion tools

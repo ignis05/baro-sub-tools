@@ -9,6 +9,7 @@ Master branch hosted on https://ignis05.github.io/baro-sub-tools/index.html
 # Currently available tools:
 
 -  `change price` allows you to set your submarine's price to any value you want, without any limitations
+-  `clean walls` will remove any bloodstains, paint or water stains from the background walls
 
 ## Extract preview image and drones
 
