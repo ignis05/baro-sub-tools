@@ -10,6 +10,7 @@ Master branch hosted on https://ignis05.github.io/baro-sub-tools/index.html
 
 -  `change price` allows you to set your submarine's price to any value you want, without any limitations
 -  `clean walls` will remove any bloodstains, paint or water stains from the background walls
+-  `hide all wires` will mark all wires as "hiden in game"
 
 ## Extract preview image and drones
 

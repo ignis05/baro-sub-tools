@@ -14049,6 +14049,25 @@ $('#cleanDirt').on('click', () => {
 	showMsg(`Cleaned <span>${cleanedCount}</span> rooms!`)
 	$('#downloadPrompt').show()
 })
+
+$('#hideWires').on('click', () => {
+	var count = 0
+	const regex = /^.*wire$/
+	LOADED_DATA.$submarine.find('Item').each(function () {
+		var item = $(this)
+		if (regex.test(item.attr('identifier'))) {
+			item.attr('hiddeningame', 'True')
+			count++
+		}
+	})
+	console.log(`${count} wires were set to hidden`)
+	if (!count) {
+		return showMsg(`No wires found.`)
+	}
+	showMsg(`Set <span>${count}</span> wires to "hidden in game"`)
+	$('#downloadPrompt').show()
+})
+
 // #endregion tools
 
 },{"concat-stream":53,"drag-and-drop-files":55,"filereader-stream":56,"jquery":58,"zlib":8}],52:[function(require,module,exports){

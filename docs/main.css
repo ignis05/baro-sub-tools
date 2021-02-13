@@ -200,10 +200,15 @@ body {
 	justify-content: center;
 	align-items: center;
 	padding: 5px 10px;
+	margin-bottom: 10px;
 }
 
 .toolWrapper .tool .confirmButton:hover {
 	border-color: #bb86fc;
+}
+
+.toolWrapper .tool:last-child .confirmButton {
+	margin-bottom: 0;
 }
 
 .toolWrapper .label {
