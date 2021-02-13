@@ -171,6 +171,10 @@ body {
 	border-radius: 10px;
 	padding: 10px;
 	box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
 }
 
 .toolWrapper:nth-child(n + 1) {
@@ -356,4 +360,11 @@ body {
 
 #console .consoleMsg span {
 	color: #03dac6;
+}
+
+#scriptInput {
+	margin-bottom: 10px;
+	width: 400px;
+	height: 120px;
+	font-family: monospace;
 }

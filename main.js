@@ -176,6 +176,15 @@ $('#priceConfirm').on('click', () => {
 	$('#downloadPrompt').show()
 })
 
+$('#runScript').on('click', () => {
+	var $submarine = LOADED_DATA.$submarine
+	let script = $('#scriptInput').val()
+	console.log(script)
+	eval(script)
+	showMsg(`Succesfully run custom script`)
+	$('#downloadPrompt').show()
+})
+
 $('#cleanDirt').on('click', () => {
 	var cleanedCount = 0
 	LOADED_DATA.$submarine.find('Hull').each(function () {

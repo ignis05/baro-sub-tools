@@ -57,6 +57,22 @@
 								<div id="hideWires" class="confirmButton" title="Mark all wires as hidden-in-game">Hide all wires</div>
 							</div>
 						</div>
+						<div class="toolWrapper">
+							<div class="tool">
+								<div class="label" title="run script with $submarine as jquery xml object">Script:</div>
+								<textarea id="scriptInput" spellcheck="false">
+// example: set all "door with button" to open
+$submarine.find('Item').each(function () {
+  var item = $(this)
+  if (item.attr('identifier') === 'doorwbuttons') {
+   item.find('Door').attr('isopen','True')
+  }
+})
+								</textarea
+								>
+								<div id="runScript" class="confirmButton" title="run script with $submarine as jquery xml object">Run script</div>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div id="extractButtons">
