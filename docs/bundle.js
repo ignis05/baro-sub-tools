@@ -13976,6 +13976,11 @@ $('#downloadButton').on('click', () => {
 $('#extractImage').on('click', () => {
 	if (!LOADED_DATA) return console.error('No submarine loaded')
 	var base64 = LOADED_DATA.$submarine.attr('previewimage')
+	if (!base64) {
+		console.log('No preview image found')
+		window.alert('Preview image not found.')
+		return
+	}
 
 	var a = document.createElement('a')
 	a.href = 'data:image/png;base64,' + base64
